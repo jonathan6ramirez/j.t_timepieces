@@ -13,7 +13,7 @@ const handleClick = async (e: any) => {
   alert("Message sent!");
 };
 
-const hC = async (e: any) => {
+const hC = async () => {
   // e.preventDefault();
   console.info('Button clicked!')
   const res = await fetch("/api/contact", {
