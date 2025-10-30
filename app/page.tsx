@@ -26,6 +26,7 @@ const handleClick = async (e: any) => {
 const hC = async (emailData: EmailData) => {
   try {
     console.log('this is the data passed on: ', emailData)
+    // this is a comment
     const res = await fetch("/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
