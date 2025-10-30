@@ -11,6 +11,17 @@ type FormData = {
     message: string
 }
 
+const corsHeaders = {
+    "Access-Control-Allow-Origin": "*", // or specify your domain instead of '*'
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+};
+
+export async function OPTIONS() {
+    // Handles the CORS preflight
+    return new Response(null, { status: 204, headers: corsHeaders })
+}
+
 export async function POST(req: Request) {
     try {
         const { message }: FormData = await req.json();
