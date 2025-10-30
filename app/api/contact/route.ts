@@ -53,13 +53,13 @@ export async function POST(req: Request) {
         // maybe in the body of the Response????
         return new Response(JSON.stringify({ message: "Sent email", data: email_response }), {
             status: 200,
-            headers: { "Content-Type:": "application/json" },
+            headers: { "Content-Type": "application/json" },
         });
     } catch (err) {
         console.error(err)
         return new Response(JSON.stringify({ error: "Failed to send email." }), {
             status: 500,
-            headers: { "Content-Type:": "application/json" },
+            headers: { "Content-Type": "application/json" },
         })
     }
 }
