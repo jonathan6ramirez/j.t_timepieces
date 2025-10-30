@@ -1,9 +1,9 @@
-import type { NextApiRequest, NextApiResponse } from "next";
+// import type { NextApiRequest, NextApiResponse } from "next";
 import nodemailer from "nodemailer";
 
-type ResponseData = {
-    message: string
-}
+// type ResponseData = {
+//     message: string
+// }
 
 type FormData = {
     name: string
@@ -24,7 +24,7 @@ export async function OPTIONS() {
 
 export async function POST(req: Request) {
     try {
-        const { message }: FormData = await req.json();
+        const { message, email }: FormData = await req.json();
 
         const transporter = nodemailer.createTransport({
             service: "gmail", // or your SMTP service
@@ -44,7 +44,7 @@ export async function POST(req: Request) {
         const email_response = await transporter.sendMail({
             from: `"Inquires" <${process.env.BUSINESS_EMAIL}>`,
             to: process.env.BUSINESS_EMAIL,
-            subject: `New Inquiry`,
+            subject: `New Inquiry from ${email}`,
             text: message,
         });
         console.info('This is the response from the email server: ', email_response)

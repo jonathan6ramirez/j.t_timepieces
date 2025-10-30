@@ -1,5 +1,15 @@
 'use client'
+
+// INFO: Components
 // import Nav from './components/Nav';
+import EmailTestButton from "./components/EmailTestBtn";
+import ContactForm from "./components/ContactForm";
+
+type EmailData = {
+  message: string
+  email: string
+}
+
 const handleClick = async (e: any) => {
   e.preventDefault();
   const formData = new FormData(e.target);
@@ -13,13 +23,14 @@ const handleClick = async (e: any) => {
   alert("Message sent!");
 };
 
-const hC = async () => {
+const hC = async (emailData: EmailData) => {
   try {
+    console.log('this is the data passed on: ', emailData)
     const res = await fetch("/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       // body: JSON.stringify({ name: "Test", email: "test@test.com", message: "Hello" }),
-      body: JSON.stringify({ message: "Whats up from the client." }),
+      body: JSON.stringify({ message: emailData.message, email: emailData.email }),
     });
 
     const data = await res.json();
@@ -38,20 +49,11 @@ export default function Home() {
   return (
     <>
       {/* <Nav /> */}
-      <main className="p-4 bg-slate-800 w-full h-full text-white flex flex-col justify-center items-center gap-4">
-        <div className="text-3xl font-bold black text-center">J.T Timepieces is under maintenance.</div>
+      <main className="p-4 bg-slate-900 w-full h-full text-slate-300 flex flex-col items-center gap-4">
+        <div className="text-xl text-center">Contact Form</div>
 
-        {/* <div className=""> */}
-        {/*   <button */}
-        {/*     className="p-2 rounded roundeds-sm bg-blue-500 text-white transition-transform */}
-        {/*     hover:scale-105 active:scale-90" */}
-        {/*     onClick={() => hC()} */}
-        {/*   > */}
-        {/*     <span> */}
-        {/*       Test Email Send */}
-        {/*     </span> */}
-        {/*   </button> */}
-        {/* </div> */}
+        <ContactForm clickFunc={hC} />
+        {/* <EmailTestButton clickFunc={hC} /> */}
       </main>
     </>
   );
