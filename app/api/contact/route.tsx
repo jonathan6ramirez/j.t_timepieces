@@ -37,5 +37,7 @@ export async function POST() {
     });
     console.info('This is the response from the email server: ', email_response)
 
+    // INFO: Should get the response from the 'email_response' and return that response
+    // maybe in the body of the Response????
     return new Response("Message sent", { status: 200 });
 }
