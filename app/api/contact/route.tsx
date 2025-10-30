@@ -11,10 +11,7 @@ type FormData = {
     message: string
 }
 
-export async function POST(
-    req: any,
-    res: NextApiResponse<ResponseData>
-) {
+export async function POST() {
     // const { name, email, message }: FormData = await req.json();
 
     const transporter = nodemailer.createTransport({
