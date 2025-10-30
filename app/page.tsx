@@ -41,17 +41,17 @@ export default function Home() {
       <main className="p-4 bg-slate-800 w-full h-full text-white flex flex-col justify-center items-center gap-4">
         <div className="text-3xl font-bold black text-center">J.T Timepieces is under maintenance.</div>
 
-        <div className="">
-          <button
-            className="p-2 rounded roundeds-sm bg-blue-500 text-white transition-transform
-            hover:scale-105 active:scale-90"
-            onClick={() => hC()}
-          >
-            <span>
-              Test Email Send
-            </span>
-          </button>
-        </div>
+        {/* <div className=""> */}
+        {/*   <button */}
+        {/*     className="p-2 rounded roundeds-sm bg-blue-500 text-white transition-transform */}
+        {/*     hover:scale-105 active:scale-90" */}
+        {/*     onClick={() => hC()} */}
+        {/*   > */}
+        {/*     <span> */}
+        {/*       Test Email Send */}
+        {/*     </span> */}
+        {/*   </button> */}
+        {/* </div> */}
       </main>
     </>
   );
