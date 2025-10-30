@@ -14,15 +14,25 @@ const handleClick = async (e: any) => {
 };
 
 const hC = async () => {
-  // e.preventDefault();
-  console.info('Button clicked!')
-  const res = await fetch("/api/contact", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({}),
-  });
-  console.log('this is the response from the fetch: ', res)
-}
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      // body: JSON.stringify({ name: "Test", email: "test@test.com", message: "Hello" }),
+      body: JSON.stringify({ message: "Whats up from the client." }),
+    });
+
+    const data = await res.json();
+    console.log("Response from API:", data);
+
+    if (!res.ok) throw new Error(data.error || "Request failed");
+
+    alert(data.message);
+  } catch (err) {
+    console.error(err);
+    alert("Failed to send message");
+  }
+};
 
 export default function Home() {
   return (
