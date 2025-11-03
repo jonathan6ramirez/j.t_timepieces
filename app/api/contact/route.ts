@@ -42,7 +42,7 @@ export async function POST(req: Request) {
         // });
         //
         const email_response = await transporter.sendMail({
-            from: `"Inquires" <${process.env.ALIAS_EMAIL}>`,
+            from: `"New Inquiry" <${process.env.ALIAS_EMAIL}>`,
             to: process.env.BUSINESS_EMAIL,
             subject: `New Inquiry from ${email}`,
             text: message,
