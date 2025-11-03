@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import './global.css'
-import { Analytics } from "@vercel/analytics/next"
+// import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
   title: 'J.T Timepieces',
@@ -14,6 +14,8 @@ export const metadata: Metadata = {
   },
 };
 
+// TODO: REMOVE THE COMMENTS ON THE ANALYTICS!!!!!
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -21,8 +23,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className=''>
-      <body className='bg-slate-900 '>{children}</body>
-      <Analytics />
+      <body className='bg-black'>{children}</body>
+      {/* <Analytics /> */}
     </html>
   );
 }

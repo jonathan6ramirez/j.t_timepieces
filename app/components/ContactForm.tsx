@@ -64,7 +64,7 @@ export default function ContactForm({ clickFuncAction }: props) {
   }
 
   return (
-    <Card className="w-full sm:max-w-md bg-slate-800 text-white">
+    <Card className="w-full sm:max-w-md bg-black text-white border border ">
       <CardHeader>
         <CardTitle>Contact Form</CardTitle>
         <CardDescription>

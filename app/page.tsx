@@ -41,7 +41,7 @@ export default function Home() {
   return (
     <>
       {/* <Nav /> */}
-      <main className="p-4 bg-slate-900 w-full h-full text-slate-300 flex flex-col items-center gap-4">
+      <main className="p-4 bg-black w-full h-full text-slate-300 flex flex-col items-center gap-4">
         <div className="text-xl text-center">Contact Form</div>
 
         <ContactForm clickFuncAction={hC} />
