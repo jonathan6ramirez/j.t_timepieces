@@ -1,12 +1,12 @@
 'use client'
-//<div className="w-full md:w-3/4 lg:w-1/2 p-2 border rounded-sm border-slate-600 bg-slate-700">
-//
+// Util Functions
 import * as React from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Controller, useForm } from "react-hook-form"
-import { toast } from "sonner"
 import * as z from "zod"
+import { cn } from "@/lib/utils"
 
+// Components
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -30,7 +30,6 @@ import {
   InputGroupText,
   InputGroupTextarea,
 } from "@/components/ui/input-group"
-import { cn } from "@/lib/utils"
 
 const formSchema = z.object({
   email: z.email("Invalid email."),
@@ -46,10 +45,10 @@ type EmailData = {
 }
 
 type props = {
-  clickFunc: (data: EmailData) => void
+  clickFuncAction: (data: EmailData) => void
 }
 
-export default function ContactForm({ clickFunc }: props) {
+export default function ContactForm({ clickFuncAction }: props) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -60,21 +59,8 @@ export default function ContactForm({ clickFunc }: props) {
 
   function onSubmit(data: z.infer<typeof formSchema>) {
     console.log("submit button clicked!", data)
-    clickFunc(data)
-    toast("You submitted the following values:", {
-      description: (
-        <pre className="bg-code text-code-foreground mt-2 w-[320px] overflow-x-auto rounded-md p-4">
-          <code>{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
-      position: "bottom-right",
-      classNames: {
-        content: "flex flex-col gap-2",
-      },
-      style: {
-        "--border-radius": "calc(var(--radius)  + 4px)",
-      } as React.CSSProperties,
-    })
+    clickFuncAction(data)
+    console.log("after the call to the clickFuncAction")
   }
 
   return (

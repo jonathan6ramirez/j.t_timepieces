@@ -4,6 +4,13 @@ import './global.css'
 export const metadata: Metadata = {
   title: 'J.T Timepieces',
   description: 'Luxury watches and exceptional service.',
+  openGraph: {
+    images: "./icon.png",
+  },
+  icons: {
+    icon: "./icon.png",
+    apple: "./icon.png",
+  },
 };
 
 export default function RootLayout({
