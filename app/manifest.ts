@@ -5,7 +5,7 @@ export const dynamic = "force-static";
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "J.T Timepieces",
-    short_name: "JTTimepieces",
+    short_name: "J.T Timepieces",
     description: "Where you can shop all my current inventory and source watches.",
     start_url: "/",
     display: "standalone",
