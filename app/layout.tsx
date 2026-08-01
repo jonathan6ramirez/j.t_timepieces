@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './global.css'
 
 export const metadata: Metadata = {
-  title: 'J.T Timepieces',
+  title: 'JT Timepieces',
   description: 'Luxury watches and exceptional service.',
 };
 
